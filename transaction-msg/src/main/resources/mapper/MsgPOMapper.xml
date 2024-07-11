@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wak.transactionmsg.mapper.MsgPOMapper">
+
+    <resultMap id="BaseResultMap" type="com.wak.transactionmsg.entities.MsgPO">
+            <id property="id" column="id" jdbcType="VARCHAR"/>
+            <result property="bodyJson" column="body_json" jdbcType="VARCHAR"/>
+            <result property="status" column="status" jdbcType="SMALLINT"/>
+            <result property="failMsg" column="fail_msg" jdbcType="VARCHAR"/>
+            <result property="failCount" column="fail_count" jdbcType="INTEGER"/>
+            <result property="sendRetry" column="send_retry" jdbcType="SMALLINT"/>
+            <result property="nextRetryTime" column="next_retry_time" jdbcType="TIMESTAMP"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,body_json,status,
+        fail_msg,fail_count,send_retry,
+        next_retry_time,create_time,update_time
+    </sql>
+</mapper>

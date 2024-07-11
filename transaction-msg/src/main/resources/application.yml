@@ -1,0 +1,42 @@
+server:
+  port: 24630
+spring:
+  application:
+    name: transaction-msg
+  #druid+mysql
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.118.103:3306/zystudy?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+    druid:
+      test-while-idle: false
+  # init sql
+  sql:
+    init:
+      schema-locations: classpath:db/init.sql
+      mode: never
+#mybatis-plus
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.wak.entities
+#rocektmq
+#rocketmq:
+#  name-server: 192.168.118.104:9876
+#  producer:
+#    group: producer_tranaction_msg
+#    send-message-timeout: 30000
+#    retry-times-when-send-failed: 3
+#    retry-times-when-send-async-failed: 2
+#    max-message-size: 4096
+#    compress-message-body-threshold: 4096
+#    retry-next-server: false
+
+logging:
+  level:
+    com:
+      wak: debug
